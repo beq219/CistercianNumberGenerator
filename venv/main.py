@@ -1,7 +1,6 @@
 import turtle
 import math
 
-# terpy = turtle.Turtle()
 hypotenuse = 50 * math.sqrt(2)
 
 def process(terpy: turtle.Turtle, input: int=0, place: int = 1):
@@ -185,33 +184,40 @@ legend = {
 }
 
 def main():
-    finished = False
     terpy = turtle.Turtle()
-    # terpy.hideturtle()
-    while not finished:
+    terpy.pensize(5)
+    terpy.shape("turtle")
+    terpy.speed(0)
+    terpy.hideturtle()
+    # while not finished:
+    while True:
         print("Enter number: ")
         num = input()
         terpy.clear()
+        # terpy.showturtle()
         num_places = []
 
         if num:
-            while len(num) and not len(num) > 4:
-                num_places.append(int(num[-1]))
-                num = num[:-1]
-            print(num_places)
+            try:
+                while len(num) and not len(num) > 4:
+                    num_places.append(int(num[-1]))
+                    num = num[:-1]
+                print(num_places)
+            except ValueError as err:
+                print("please enter a number between 1 and 9999")
 
-            # process(input1)()
-            # terpy.home()
             place = 1
             while num_places:
                 process(terpy=terpy,input=num_places.pop(0), place=place)
                 place = place * 10
-
+            # terpy.hideturtle()
         else:
-            finished = True
+            # finished = True
+            break
     print("done")
     turtle.done()
-
+    turtle.bye()
+    turtle.mainloop()
 
 if __name__ == "__main__":
     main()
