@@ -189,7 +189,6 @@ def main():
     terpy.shape("turtle")
     terpy.speed(0)
     terpy.hideturtle()
-    # while not finished:
     while True:
         print("Enter number: ")
         num = input()
@@ -212,7 +211,6 @@ def main():
                 place = place * 10
             # terpy.hideturtle()
         else:
-            # finished = True
             break
     print("done")
     turtle.done()
